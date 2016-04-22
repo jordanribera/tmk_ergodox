@@ -94,12 +94,12 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         GRV,        1,      2,      3,      4,      5,          FN9,
         TAB,        Q,      W,      E,      R,      T,          LBRC,
-        FN1,        A,      S,      D,      F,      G,
+        FN4,        A,      S,      D,      F,      G,
         LSFT,       Z,      X,      C,      V,      B,          MINS,
-        LCTL,       LGUI,   LALT,   NO,     NO,
+        LCTL,       LGUI,   LALT,   NO,     FN3,
                                                                 NO,         NO,
                                                                             NO,
-                                                    BSPC,       SPC,        FN3,
+                                                    BSPC,       SPC,        FN1,
         // right hand
                 FN10,       6,      7,      8,      9,      0,          DEL,
                 RBRC,       Y,      U,      I,      O,      P,          BSLS,
@@ -115,7 +115,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        FN1,        NO,     NO,     NO,     NO,     NO,
+        TRNS,        NO,     NO,     NO,     NO,     NO,
         TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
@@ -136,7 +136,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        NO,         NO,     NO,     NO,     NO,     NO,
+        TRNS,       NO,     NO,     NO,     NO,     NO,
         TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
@@ -157,7 +157,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        NO,         NO,     NO,     NO,     NO,     NO,
+        TRNS,       NO,     NO,     NO,     NO,     NO,
         TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
@@ -174,11 +174,11 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,   MPLY,       TRNS
     ),
 
-    KEYMAP(  // Layer4: Fn keys and numpad
+    KEYMAP(  // Layer4: Quick symbols
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        NO,         NO,     NO,     NO,     NO,     NO,
+        TRNS,       NO,     NO,     NO,     NO,     NO,
         TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
@@ -186,9 +186,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         TRNS,   TRNS,   TRNS,
         // right hand
                 NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                            NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     NO,     NO,     NO,     NO,         TRNS,
+                NO,         NO,     FN11,   NO,     FN12,     NO,         NO,
+                            NO,     FN9,    NO,     FN10,   NO,         NO,
+                NO,         NO,     LBRC,   NO,     RBRC,   NO,         TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
@@ -398,14 +398,6 @@ static const uint16_t PROGMEM fn_actions[] = {
     [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
 };
 
-static const uint16_t PROGMEM fn_actions_4[] = {
-    [1]  =  ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
-    [2]  =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
-    [3]  =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
-    [4]  =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
-    [5]  =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN5  = Shifted slash     // ? in Workman
-};
-
 static const uint16_t PROGMEM fn_actions_7[] = {
     [0]  =  ACTION_MACRO(XMONAD_RESET),                     // FN0  = xmonad-reanimator
     [1]  =  ACTION_MACRO(PASSWORD1),                        // FN1  = default password
@@ -543,10 +535,6 @@ action_t keymap_fn_to_action(uint8_t keycode)
 
     action_t action;
     action.code = ACTION_NO;
-
-    if (layer == 4 && FN_INDEX(keycode) < FN_ACTIONS_4_SIZE) {
-        action.code = pgm_read_word(&fn_actions_4[FN_INDEX(keycode)]);
-    }
 
     if (layer == 7 && FN_INDEX(keycode) < FN_ACTIONS_7_SIZE) {
         action.code = pgm_read_word(&fn_actions_7[FN_INDEX(keycode)]);
