@@ -123,9 +123,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         TRNS,   TRNS,   TRNS,
         // right hand
                 NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     7,      8,      9,      0,       NO,
+                NO,         NO,     7,      8,      9,      0,          NO,
                             NO,     4,      5,      6,      NO,         NO,
-                NO,         NO,     1,      2,      3,   NO,         TRNS,
+                NO,         NO,     1,      2,      3,      NO,         TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
@@ -186,9 +186,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         TRNS,   TRNS,   TRNS,
         // right hand
                 NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     FN11,   NO,     FN12,     NO,         NO,
-                            NO,     FN9,    NO,     FN10,   NO,         NO,
-                NO,         NO,     LBRC,   NO,     RBRC,   NO,         TRNS,
+                NO,         NO,     FN11,   DOT,    FN12,     NO,         NO,
+                            NO,     FN9,    FN13,   FN10,   NO,         NO,
+                NO,         NO,     LBRC,   FN14,   RBRC,   NO,         TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
@@ -353,23 +353,24 @@ enum macro_id {
 static const uint16_t PROGMEM fn_actions[] = {
     [0] =   ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
 
+    // Layer switching
     [1] =   ACTION_LAYER_MOMENTARY(1),                      // FN1  = Momentary Layer1
     [2] =   ACTION_LAYER_MOMENTARY(2),                      // FN2  = Momentary Layer2
     [3] =   ACTION_LAYER_MOMENTARY(3),                      // FN3  = Momentary Layer3
     [4] =   ACTION_LAYER_MOMENTARY(4),                      // FN4  = Momentary Layer4
-
     [5] =   ACTION_LAYER_MOMENTARY(5),                      // FN5  = Momentary Layer5
     [6] =   ACTION_LAYER_MOMENTARY(6),                      // FN6  = Momentary Layer6
     [7] =   ACTION_LAYER_MOMENTARY(7),                      // FN7  = Momentary Layer7
     [8] =   ACTION_LAYER_MOMENTARY(8),                      // FN8  = Momentary Layer8
 
+    // Shifted symbols
     [9]  =  ACTION_MODS_KEY(MOD_LSFT, KC_9),                // FN9   = Shifted (
     [10] =  ACTION_MODS_KEY(MOD_LSFT, KC_0),                // FN10  = Shifted )
     [11] =  ACTION_MODS_KEY(MOD_LSFT, KC_LBRC),             // FN11  = Shifted {
     [12] =  ACTION_MODS_KEY(MOD_LSFT, KC_RBRC),             // FN12  = Shifted }
+    [13] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),            // FN13  = Shifted _
+    [14] =  ACTION_MODS_KEY(MOD_LSFT, KC_SCLN),             // FN14  = Shifted :
 
-    [13] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_SPC),          // FN13 = LAlt   with tap Space
-    [14] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),          // FN14 = LGui   with tap Escape
     [15] =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_QUOT),         // FN15 = RShift with tap quotes
     [16] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC),         // FN16 = RCtrl  with tap ]
 
