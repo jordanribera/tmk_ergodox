@@ -92,23 +92,23 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer0: default, leftled:none
         // left hand
-        GRV,        1,  2,  3,  4,  5,  NO,
+        GRV,        1,  2,  3,  4,  5,  FN5,
         KC_TAB,     Q,  W,  E,  R,  T,  KC_LBRC,
-        NO,         A,  S,  D,  F,  G,
+        FN1,         A,  S,  D,  F,  G,
         KC_LSFT,    Z,  X,  C,  V,  B,  KC_MINS,
         KC_LCTL,    KC_LGUI,    KC_LALT,    NO, NO,
-                                      NO,   NO,
-                                           NO,
-                                 KC_BSPC, KC_SPC, NO,
+                                            NO, NO,
+                                                NO,
+                            KC_BSPC, KC_SPC,    FN3,
         // right hand
-        NO,         6,  7,  8,  9,  0,      KC_DEL,
+        FN6,         6,  7,  8,  9,  0,      KC_DEL,
         KC_RBRC,    Y,  U,  I,  O,  P,      KC_BSLS,
                     H,  J,  K,  L,  SCLN,   KC_QUOT,
         KC_EQL,     N,  M,  COMM, DOT, SLSH, KC_RSFT,
                        LEFT, DOWN, UP, RGHT, KC_RCTL,
         NO, NO,
         NO,
-        NO, KC_ENT, KC_ESC
+        FN2, KC_ENT, KC_ESC
     ),
 
     KEYMAP(  // Layer1: Workman layout, leftled:all
@@ -381,15 +381,16 @@ enum macro_id {
 static const uint16_t PROGMEM fn_actions[] = {
     [0] =   ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
 
-    [1] =   ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
-    [2] =   ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
-    [3] =   ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
-    [4] =   ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
+    [1] =   ACTION_LAYER_MOMENTARY(1),                      // FN1  = Momentary Layer1
+    [2] =   ACTION_LAYER_MOMENTARY(2),                      // FN2  = Momentary Layer2
+    [3] =   ACTION_LAYER_MOMENTARY(3),                      // FN3  = Momentary Layer3
+    [4] =   ACTION_LAYER_MOMENTARY(4),                      // FN4  = Momentary Layer4
 
-    [5] =   ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
-    [6] =   ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
-    [7] =   ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
-    [8] =   ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
+    [5] =   ACTION_MODS_KEY(MOD_LSFT, KC_9),                // FN5  = Shifted (
+    [6] =   ACTION_MODS_KEY(MOD_LSFT, KC_0),                // FN6  = Shifted )
+    [7] =   ACTION_MODS_KEY(MOD_LSFT, KC_LBRC),             // FN7  = Shifted {
+    [8] =   ACTION_MODS_KEY(MOD_LSFT, KC_RBRC),             // FN8  = Shifted }
+
     [9] =   ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
     [10] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN10 = RCtrl  with tap Space
 
