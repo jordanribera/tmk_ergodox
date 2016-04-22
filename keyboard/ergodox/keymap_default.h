@@ -92,23 +92,23 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer0: default, leftled:none
         // left hand
-        GRV,        1,  2,  3,  4,  5,  FN5,
-        KC_TAB,     Q,  W,  E,  R,  T,  KC_LBRC,
-        FN1,         A,  S,  D,  F,  G,
-        KC_LSFT,    Z,  X,  C,  V,  B,  KC_MINS,
-        KC_LCTL,    KC_LGUI,    KC_LALT,    NO, NO,
-                                            NO, NO,
-                                                NO,
-                            KC_BSPC, KC_SPC,    FN3,
+        GRV,        1,      2,      3,      4,      5,      FN5,
+        KC_TAB,     Q,      W,      E,      R,      T,      KC_LBRC,
+        FN1,        A,      S,      D,      F,      G,
+        KC_LSFT,    Z,      X,      C,      V,      B,      KC_MINS,
+        KC_LCTL,    KC_LGUI,    KC_LALT,    NO,     NO,
+                                                    NO,     NO,
+                                                            NO,
+                                        KC_BSPC,    KC_SPC, FN3,
         // right hand
-        FN6,         6,  7,  8,  9,  0,      KC_DEL,
-        KC_RBRC,    Y,  U,  I,  O,  P,      KC_BSLS,
-                    H,  J,  K,  L,  SCLN,   KC_QUOT,
-        KC_EQL,     N,  M,  COMM, DOT, SLSH, KC_RSFT,
-                       LEFT, DOWN, UP, RGHT, KC_RCTL,
-        NO, NO,
+        FN6,        6,      7,      8,      9,      0,      KC_DEL,
+        KC_RBRC,    Y,      U,      I,      O,      P,      KC_BSLS,
+                    H,      J,      K,      L,      SCLN,   KC_QUOT,
+        KC_EQL,     N,      M,      COMM,   DOT,    SLSH,   KC_RSFT,
+                    LEFT,   DOWN,   UP,     RGHT,   KC_RCTL,
+        NO,     NO,
         NO,
-        FN2, KC_ENT, KC_ESC
+        FN2,    KC_ENT,     KC_ESC
     ),
 
     KEYMAP(  // Layer1: Workman layout, leftled:all
