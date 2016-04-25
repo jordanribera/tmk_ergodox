@@ -126,9 +126,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         TRNS,   TRNS,   TRNS,
         // right hand
                 NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     FN11,   FN15,   FN12,     NO,         NO,
-                            NO,     FN9,    FN13,   FN10,   NO,         NO,
-                NO,         NO,     LBRC,   QUOT,   RBRC,   NO,         TRNS,
+                NO,         NO,     FN11,   FN15,   FN12,   NO,         NO,
+                            NO,     FN9,    FN13,   FN10,   FN14,       NO,
+                NO,         NO,     LBRC,   QUOT,   RBRC,   FN18,       TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
@@ -311,11 +311,10 @@ static const uint16_t PROGMEM fn_actions[] = {
     [13] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),            // FN13  = Shifted _
     [14] =  ACTION_MODS_KEY(MOD_LSFT, KC_SCLN),             // FN14  = Shifted :
     [15] =  ACTION_MODS_KEY(MOD_LSFT, KC_QUOT),             // FN15  = Shifted "
+    [16] =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN16  = Shifted < (not used)
+    [17] =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN17  = Shifted > (not used)
+    [18] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN18  = Shifted ?
 
-    [16] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC),         // FN16 = RCtrl  with tap ]
-
-    [17] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN17 - set Layer0
-    [18] =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN18 - set Layer1, to use Workman layout at firmware level
     [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
 
     [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
