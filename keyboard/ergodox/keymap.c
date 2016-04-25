@@ -83,8 +83,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap_workman.h"
 #elif defined(KEYMAP_MICRO)
 #include "keymap_micro.h"
-/**#elif defined(KEYMAP_CUB)
-#include "keymap_cub.h"**/
+#elif defined(KEYMAP_CUB)
+#include "keymap_cub.h"
 #elif defined(KEYMAP_DEFAULT)
 #include "keymap_default.h"
 #else
