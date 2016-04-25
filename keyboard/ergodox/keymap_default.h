@@ -93,7 +93,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer0: Default
         // left hand
         GRV,        1,      2,      3,      4,      5,          FN9,
-        TAB,        Q,      W,      E,      R,      T,          LBRC,
+        TAB,        Q,      W,      E,      R,      T,          QUOT,
         FN4,        A,      S,      D,      F,      G,
         LSFT,       Z,      X,      C,      V,      B,          MINS,
         LCTL,       LGUI,   LALT,   NO,     FN3,
@@ -102,7 +102,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     BSPC,       SPC,        FN1,
         // right hand
                 FN10,       6,      7,      8,      9,      0,          DEL,
-                RBRC,       Y,      U,      I,      O,      P,          BSLS,
+                FN15,       Y,      U,      I,      O,      P,          BSLS,
                             H,      J,      K,      L,      SCLN,       QUOT,
                 EQL,        N,      M,      COMM,   DOT,   SLSH,        RSFT,
                             LEFT,   DOWN,   UP,     RGHT,   RCTL,
@@ -370,8 +370,8 @@ static const uint16_t PROGMEM fn_actions[] = {
     [12] =  ACTION_MODS_KEY(MOD_LSFT, KC_RBRC),             // FN12  = Shifted }
     [13] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),            // FN13  = Shifted _
     [14] =  ACTION_MODS_KEY(MOD_LSFT, KC_SCLN),             // FN14  = Shifted :
+    [15] =  ACTION_MODS_KEY(MOD_LSFT, KC_QUOT),             // FN15  = Shifted "
 
-    [15] =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_QUOT),         // FN15 = RShift with tap quotes
     [16] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC),         // FN16 = RCtrl  with tap ]
 
     [17] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN17 - set Layer0
