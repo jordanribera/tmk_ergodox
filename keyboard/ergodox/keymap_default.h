@@ -25,69 +25,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *
      ****************************************************************************************************
      *
-     * Under XOrg, I use my own mapping from QWERTY to "Workman for Programmers"
-     * See XOrg files in ./addons/ subdirectory.
-     *
-     * I have to do so, because of two things:
-     * 1) my native language is Russian, and XOrg keymap for it is based on QWERTY layout
-     * 2) I want to have non-standart shifted keys, like $ (as normal) and @ (as shifted), or _ and -
-     *
-     * And even if (2) could be solved using FN* keys (but there is limit in firmware for only 32 such
-     * keys), then (1) can't be solved at firmware level at all.
-     *
-     * So, I have to stick with QWERTY as my main layout + my own XOrg keyboard layout for English.
-     * But sometimes I have to input something when XOrg is not active - for example, in Linux console,
-     * or in firmware console (while debugging firmware), or when keyboard is connected to not my computer.
-     *
-     * For such cases I have Layer1 :)
-     * // hint: switch to Layer1 is only at Layer6
+     * Description here eventually.
      *
      ****************************************************************************************************
-     *
-     *
-     *
-     * Keymap: Default Layer in Workman
-     *
-     * ,--------------------------------------------------.           ,--------------------------------------------------.
-     * |  ~     |   ;  |   !  |   #  |   {  |   }  |   '  |           |   ^  |   [  |   ]  |   *  |   (  |   )  |   =    |
-     * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-     * | Tab    |   Q  |   D  |   R  |   W  |   B  |  NO  |           | ~L7  |   J  |   F  |   U  |   P  |   $  |   :    |
-     * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-     * | Tab/Shf|   A  |   S  |   H  |   T  |   G  |------|           |------|   Y  |   N  |   E  |   O  |   I  |   -    |
-     * |--------+------+------+------+------+------| Home |           | End  |------+------+------+------+------+--------|
-     * | LCtrl  |   Z  |   X  |   M  |   C  |   V  |      |           |      |   K  |   L  |   ,  |   .  |   /  |   |    |
-     * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-     *   | ~L5  | ~L2  | Caps | LAlt | LGui |                                       |  Lft |  Up  |  Dn  | Rght | ~L6  |
-     *   `----------------------------------'                                       `----------------------------------'
-     *                                        ,-------------.       ,-------------.
-     *                                        |  L0  |  +L2 |       | PgUp | Del  |
-     *                                 ,------|------|------|       |------+------+------.
-     *                                 |      |      |  NO  |       | PgDn |      |      |
-     *                                 | BkSp |  ESC |------|       |------| Enter| Space|
-     *                                 |      |      |  Spc |       | Ins  |      |      |
-     *                                 `--------------------'       `--------------------'
-     *
-     * Keymap: Default Layer in Workman / with Shift
-     *
-     * ,--------------------------------------------------.           ,--------------------------------------------------.
-     * |  `     |   1  |   2  |   3  |   4  |   5  |   "  |           |   \  |   6  |   7  |   8  |   9  |   0  |   +    |
-     * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-     * | Tab    |   Q  |   D  |   R  |   W  |   B  |  NO  |           | ~L7  |   J  |   F  |   U  |   P  |   @  |   %    |
-     * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-     * | Tab/Shf|   A  |   S  |   H  |   T  |   G  |------|           |------|   Y  |   N  |   E  |   O  |   I  |   _    |
-     * |--------+------+------+------+------+------| Home |           | End  |------+------+------+------+------+--------|
-     * | LCtrl  |   Z  |   X  |   M  |   C  |   V  |      |           |      |   K  |   L  |   ,  |   .  |   /  |   &    |
-     * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-     *   | ~L5  | ~L2  | Caps | LAlt | LGui |                                       |  Lft |  Up  |  Dn  | Rght | ~L6  |
-     *   `----------------------------------'                                       `----------------------------------'
-     *                                        ,-------------.       ,-------------.
-     *                                        |  L0  |  +L2 |       | PgUp | Del  |
-     *                                 ,------|------|------|       |------+------+------.
-     *                                 |      |      |  NO  |       | PgDn |      |      |
-     *                                 | BkSp |  ESC |------|       |------| Enter| Space|
-     *                                 |      |      |  Spc |       | Ins  |      |      |
-     *                                 `--------------------'       `--------------------'
-     *
      */
 
     KEYMAP(  // Layer0: Default
@@ -186,9 +126,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         TRNS,   TRNS,   TRNS,
         // right hand
                 NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     FN11,   DOT,    FN12,     NO,         NO,
+                NO,         NO,     FN11,   FN15,   FN12,     NO,         NO,
                             NO,     FN9,    FN13,   FN10,   NO,         NO,
-                NO,         NO,     LBRC,   FN14,   RBRC,   NO,         TRNS,
+                NO,         NO,     LBRC,   QUOT,   RBRC,   NO,         TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
