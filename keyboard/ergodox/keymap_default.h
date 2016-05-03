@@ -96,9 +96,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer3: Media
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        NO,         NO,     NO,     NO,     NO,     NO,         NO,
+        NO,         NO,     NO,     NO,     NO,     NO,         VOLU,
         TRNS,       NO,     NO,     NO,     NO,     NO,
-        TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
+        TRNS,       NO,     NO,     NO,     NO,     NO,         VOLD,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
                                                                         NO,
@@ -461,7 +461,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 }
 
 #define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
-#define FN_ACTIONS_4_SIZE   (sizeof(fn_actions_4) / sizeof(fn_actions_4[0]))
 #define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
 #define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
 
