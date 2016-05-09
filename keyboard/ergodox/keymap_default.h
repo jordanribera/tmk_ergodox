@@ -43,7 +43,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                 FN10,       6,      7,      8,      9,      0,          DEL,
                 FN15,       Y,      U,      I,      O,      P,          BSLS,
-                            H,      J,      K,      L,      SCLN,       NO,
+                            H,      J,      K,      L,      SCLN,       QUOT,
                 EQL,        N,      M,      COMM,   DOT,   SLSH,        RSFT,
                             LEFT,   DOWN,   UP,     RGHT,   RCTL,
         NO,     NO,
@@ -96,9 +96,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer3: Media
         // left hand
         NO,         NO,     NO,     NO,     NO,     NO,         NO,
-        NO,         NO,     NO,     NO,     NO,     NO,         NO,
+        NO,         NO,     NO,     NO,     NO,     NO,         VOLU,
         TRNS,       NO,     NO,     NO,     NO,     NO,
-        TRNS,       NO,     NO,     NO,     NO,     NO,         NO,
+        TRNS,       NO,     NO,     NO,     NO,     NO,         VOLD,
         TRNS,       TRNS,   TRNS,   TRNS,   TRNS,
                                                                 NO,     NO,
                                                                         NO,
@@ -125,10 +125,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         NO,
                                                         TRNS,   TRNS,   TRNS,
         // right hand
-                NO,         NO,     NO,     NO,     NO,     NO,         NO,
-                NO,         NO,     FN11,   FN15,   FN12,     NO,         NO,
-                            NO,     FN9,    FN13,   FN10,   NO,         NO,
-                NO,         NO,     LBRC,   QUOT,   RBRC,   NO,         TRNS,
+                NO,         FN21,   FN22,   FN23,   NO,     NO,         NO,
+                NO,         NO,     FN11,   FN15,   FN12,   NO,         NO,
+                            NO,     FN9,    FN13,   FN10,   FN14,       NO,
+                NO,         NO,     LBRC,   QUOT,   RBRC,   FN18,       TRNS,
                             TRNS,   TRNS,   TRNS,   TRNS,   TRNS,
         NO,     NO,
         NO,
@@ -311,32 +311,25 @@ static const uint16_t PROGMEM fn_actions[] = {
     [13] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINUS),            // FN13  = Shifted _
     [14] =  ACTION_MODS_KEY(MOD_LSFT, KC_SCLN),             // FN14  = Shifted :
     [15] =  ACTION_MODS_KEY(MOD_LSFT, KC_QUOT),             // FN15  = Shifted "
+    [16] =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN16  = Shifted < (not used)
+    [17] =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN17  = Shifted > (not used)
+    [18] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN18  = Shifted ?
 
-    [16] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC),         // FN16 = RCtrl  with tap ]
-
-    [17] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN17 - set Layer0
-    [18] =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN18 - set Layer1, to use Workman layout at firmware level
-    [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
-
-    [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
-    [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
-
-    [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
-    [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
-    [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
-    [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
-
-    // i'd like to remove this - will try to get used to live without this and convert them to usual keys
-    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
-// or
-//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
-
-    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
+    [19] =  ACTION_MODS_KEY(MOD_LSFT, KC_1),                // FN19  = Shifted !
+    [20] =  ACTION_MODS_KEY(MOD_LSFT, KC_2),                // FN20  = Shifted @
+    [21] =  ACTION_MODS_KEY(MOD_LSFT, KC_6),                // FN21  = Shifted ^
+    [22] =  ACTION_MODS_KEY(MOD_LSFT, KC_7),                // FN22  = Shifted &
+    [23] =  ACTION_MODS_KEY(MOD_LSFT, KC_8),                // FN23  = Shifted *
 
     [24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
     [25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
     [26] =  ACTION_LAYER_TAP_KEY(8, KC_C),                  // FN26 = momentary Layer8 on C key, to use with mouse and navigation keys
     [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
+
+    [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
+    [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
+    [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
+    [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
@@ -462,7 +455,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 }
 
 #define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
-#define FN_ACTIONS_4_SIZE   (sizeof(fn_actions_4) / sizeof(fn_actions_4[0]))
 #define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
 #define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
 
