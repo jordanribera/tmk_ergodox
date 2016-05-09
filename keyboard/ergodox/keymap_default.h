@@ -125,7 +125,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         NO,
                                                         TRNS,   TRNS,   TRNS,
         // right hand
-                NO,         NO,     NO,     NO,     NO,     NO,         NO,
+                NO,         FN21,   FN22,   FN23,   NO,     NO,         NO,
                 NO,         NO,     FN11,   FN15,   FN12,   NO,         NO,
                             NO,     FN9,    FN13,   FN10,   FN14,       NO,
                 NO,         NO,     LBRC,   QUOT,   RBRC,   FN18,       TRNS,
@@ -315,27 +315,21 @@ static const uint16_t PROGMEM fn_actions[] = {
     [17] =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN17  = Shifted > (not used)
     [18] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN18  = Shifted ?
 
-    [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
-
-    [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
-    [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
-
-    [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
-    [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
-    [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
-    [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
-
-    // i'd like to remove this - will try to get used to live without this and convert them to usual keys
-    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
-// or
-//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
-
-    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
+    [19] =  ACTION_MODS_KEY(MOD_LSFT, KC_1),                // FN19  = Shifted !
+    [20] =  ACTION_MODS_KEY(MOD_LSFT, KC_2),                // FN20  = Shifted @
+    [21] =  ACTION_MODS_KEY(MOD_LSFT, KC_6),                // FN21  = Shifted ^
+    [22] =  ACTION_MODS_KEY(MOD_LSFT, KC_7),                // FN22  = Shifted &
+    [23] =  ACTION_MODS_KEY(MOD_LSFT, KC_8),                // FN23  = Shifted *
 
     [24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
     [25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
     [26] =  ACTION_LAYER_TAP_KEY(8, KC_C),                  // FN26 = momentary Layer8 on C key, to use with mouse and navigation keys
     [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
+
+    [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
+    [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
+    [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
+    [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
